@@ -1,4 +1,4 @@
-from wordcloud import (WordCloud, get_single_color_func)
+from wordcloud import (get_single_color_func)
 import matplotlib.pyplot as plt
 
 class GroupedColorFunc(object):
@@ -35,6 +35,7 @@ class GroupedColorFunc(object):
         return self.get_color_func(word)(word, **kwargs)
 
 """
+Example output:
 
 color_to_words = {
     # words below will be colored with a green single color function

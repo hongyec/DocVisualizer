@@ -8,12 +8,13 @@ import json
 
 def readXml(cacheFile, sectionalContent):
     ## get the current file path
-    print(cacheFile)
     with open(cacheFile) as f:
         responseData = f.read()
     bs_content = bs(responseData, "lxml")
     title = bs_content.find("article-title").contents[0]
     sectionalContent["title"] = title
+    abstract = bs_content.find("abstract").contents[1]
+    sectionalContent["abstract"] = str(abstract).replace("<p>", "")
     sections = bs_content.findAll("sec")
     for section in sections:
         title = section.find("title").contents[0]
@@ -39,7 +40,6 @@ def sectionDevider(input):
     cacheFile = os.path.join(currentPath.parents[0], "responseCache", cacheName)
     resultFile = os.path.join(currentPath.parents[0], "responseCache", resultName)
 
-    print(cacheFile)
 
     sectionalContent = {}
     if(os.path.isfile(cacheFile)):
@@ -49,11 +49,11 @@ def sectionDevider(input):
         headers = {
             'Content-Type': 'application/binary',
         }
-        data = open('targetFolder/SOSP.pdf', 'rb').read()
+        data = open(input, 'rb').read()
         response =  requests.post('http://cermine.ceon.pl/extract.do', headers=headers, data=data)
-        with open(cacheName, "w") as f:
+        with open(cacheFile, "w") as f:
             f.write(response.text)
-        readXml(cacheName, sectionalContent)
+        readXml(cacheFile, sectionalContent)
 
     storeJson(sectionalContent, resultFile)
     return sectionalContent
