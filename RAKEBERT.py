@@ -16,11 +16,17 @@ import sectionDevision
 import colorByGroup
 
 
-def plotWordCloud(keywordFreq, title, color_to_words, default_color, font, width, height):
+def plotWordCloud(keywordFreq, title, color_to_words, default_color, font, width, height, background, mask):
+    # del keywordFreq["word"]
+    # del keywordFreq["key"]
+    # del keywordFreq["paper"]
+    # del keywordFreq["data"]
     wordcloud = WordCloud(
     font_path=font,
     width= width, height=height,
     max_words=100,
+    background_color=background,
+    mask = mask,
     #max_font_size=50,
     #random_state=42
     ).generate_from_frequencies(keywordFreq)
@@ -31,7 +37,7 @@ def plotWordCloud(keywordFreq, title, color_to_words, default_color, font, width
     wordcloud.recolor(color_func=grouped_color_func)
 
     fig = plt.figure(figsize=(20,10), facecolor='k')
-    plt.title(title)
+    #plt.title(title)
     plt.imshow(wordcloud)
     plt.tight_layout(pad=0)
     plt.axis('off')
@@ -83,6 +89,15 @@ def RAKEBERT(sectionalContent):
     corpus = []
     thesisCorpus = ""
     for k, v in sectionalContent.items():
+
+        # Remove the url
+        urlR = "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)";
+        text = re.sub(urlR, ' ', v)
+
+        urlR = "http?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)";
+        text = re.sub(urlR, ' ', v)
+
+
         #Remove punctuations
         text = re.sub('[^a-zA-Z]', ' ', v)
 
