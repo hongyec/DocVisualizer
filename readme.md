@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="figures/DocVisualizer.png" alt="Logo" width="300" height="100">
+    <img src="image/DocVisualizer.png" alt="Logo" width="300" height="100">
   </a>
 
   <!-- <h1 align="center">DocVisualizer</h3> -->
@@ -82,7 +82,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![hel](figures/Visoo.png)
+![hel](image/Visoo.png)
 
 Metadata of research articles help researchers quickly classify categories, identify contents, and organize resources. Meanwhile, visualization of metadata can reinforce the benefit. Nevertheless, many existing research websites fail to present their meta-data properly. To address this absence of the presentation, we propose a tool called DocVisualizer that could extract the structural metadata and content words from existing articles and produce word cloud visualization using the information it extracted.
 
@@ -135,7 +135,7 @@ python docVisualizer -i {directory/target}.pdf
 ```
 ### Examples:
 * [APIScanner -- Towards Automated Detection of Deprecated APIs in Python Libraries](https://arxiv.org/abs/2102.09251)
-![APIScanner](figures/APIScanner.png)
+![APIScanner](image/APIScanner.png)
 
 
 _For more examples, please refer to the [Video](https://www.youtube.com/watch?v=Vbw8ehVa7pw)_
