@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas
 import sectionDevision
-import colorByGroup
+import src.colorByGroup as colorByGroup
 
 
 def plotWordCloud(keywordFreq, title, color_to_words, default_color, font, width, height, background, mask):

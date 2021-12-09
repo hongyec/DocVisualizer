@@ -47,7 +47,7 @@ def main():
     # set up the default value for the user input
     keycolor = "yellow" if not keycolor else keycolor
     defaultcolor = "green" if not defaultcolor else defaultcolor
-    font = "font/Cotton_Butter.ttf" if not arguments.font else font
+    font = "../font/Cotton_Butter.ttf" if not arguments.font else font
     algorithm = "RAKEBERT" if not algorithm else algorithm
     width = 1600 if not width else width
     height = 800 if not height else height

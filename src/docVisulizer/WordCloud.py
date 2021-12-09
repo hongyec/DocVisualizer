@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
-import colorByGroup
+import colorByGroup as colorByGroup
 import random
 import json
 

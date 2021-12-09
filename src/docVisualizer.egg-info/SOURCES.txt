@@ -1,0 +1,7 @@
+LICENSE
+README.md
+setup.py
+src/docVisualizer.egg-info/PKG-INFO
+src/docVisualizer.egg-info/SOURCES.txt
+src/docVisualizer.egg-info/dependency_links.txt
+src/docVisualizer.egg-info/top_level.txt
